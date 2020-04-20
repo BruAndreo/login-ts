@@ -1,3 +1,3 @@
-const a: Number = 6;
+import app from './app';
 
-console.log(a);
+app.listen(3333, () => console.log(`Server is online at port ${3333}`));

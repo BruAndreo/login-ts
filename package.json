@@ -26,8 +26,14 @@
   },
   "homepage": "https://github.com/BruAndreo/login-ts#readme",
   "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/morgan": "^1.9.0",
     "nodemon": "^2.0.3",
     "sucrase": "^3.13.0",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
   }
 }
