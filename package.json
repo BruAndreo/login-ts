@@ -1,0 +1,33 @@
+{
+  "name": "login-ts",
+  "version": "1.0.0",
+  "description": "Simple API to login and register in TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "sucrase src -d dist --transforms typescript,imports",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BruAndreo/login-ts.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "Login",
+    "Singin",
+    "Singup",
+    "Register"
+  ],
+  "author": "bruandreo <brunolino2026@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BruAndreo/login-ts/issues"
+  },
+  "homepage": "https://github.com/BruAndreo/login-ts#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "sucrase": "^3.13.0",
+    "typescript": "^3.8.3"
+  }
+}
