@@ -1,6 +1,8 @@
 import express from 'express';
 import morgan from 'morgan';
 
+import routes from './routes';
+
 class App {
   public application: express.Application;
 
@@ -17,7 +19,7 @@ class App {
   }
 
   private routes(): void {
-    this.application.get('/', (req, res) => res.send('oi'));
+    this.application.use(routes);
   }
 }
 
