@@ -1,9 +1,9 @@
 module.exports = {
   name: 'default',
-  type: 'mysql',
+  type: 'postgres',
   host: 'localhost',
-  port: 33060,
-  username: 'root',
+  port: 5432,
+  username: 'logints',
   password: 'secretpw',
-  database: 'login_ts',
+  database: 'logints',
 };
