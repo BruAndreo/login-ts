@@ -15,7 +15,7 @@ class Users {
   @Column()
   password: string;
 
-  @Column('number')
+  @Column('int')
   type: number;
 
   @Column('time without time zone')

@@ -1,15 +1,13 @@
 import { Request, Response } from 'express';
+import { getCustomRepository } from 'typeorm';
+import UserRepo from '../repositorys/UserRepo';
 
 class Users {
 
   public async listUsers(req: Request, res: Response): Promise<Response> {
-    return res.json({
-      users: [{
-        name: 'Bruno Lino Andreo',
-        username: 'bruandreo',
-        email: 'brunolino2026@gmail.com'
-      }]
-    });
+    const users = getCustomRepository(UserRepo);
+
+    return res.json({ users: await users.find() });
   }
 
 }
