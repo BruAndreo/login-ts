@@ -33,6 +33,11 @@ export default class CreateUser1587686921328 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'lastLogin',
+            type: 'timestamp with time zone',
+            isNullable: true,
+          },
+          {
             name: 'createdAt',
             type: 'timestamp with time zone',
             isNullable: false,
