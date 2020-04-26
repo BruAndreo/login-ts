@@ -73,6 +73,16 @@ class Users {
     return res.status(500).json({ message: 'Error' });
   }
 
+  public async deleteUser(req: Request, res: Response): Promise<Response> {
+    const users = getCustomRepository(UserRepo);
+
+    const id = req.params.id;
+
+    await users.delete(id);
+
+    return res.json({ message: 'User deleted' });
+  }
+
 }
 
 export default Users;

@@ -11,5 +11,6 @@ routes.get('/users/:id', users.getUserById);
 routes.post('/users', users.createUser);
 routes.put('/users/:id/type', users.modifyUserType);
 routes.put('/users/:id/password', users.modifyUserPassword);
+routes.delete('/users/:id', users.deleteUser);
 
 export default routes;
