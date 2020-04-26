@@ -10,5 +10,6 @@ routes.get('/users', users.listUsers);
 routes.get('/users/:id', users.getUserById);
 routes.post('/users', users.createUser);
 routes.put('/users/:id/type', users.modifyUserType);
+routes.put('/users/:id/password', users.modifyUserPassword);
 
 export default routes;

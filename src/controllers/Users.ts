@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
+import Utils from '../lib/Utils';
 import UserRepo from '../repositorys/UserRepo';
 
 class Users {
@@ -16,7 +17,7 @@ class Users {
     const newUser = users.create({
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password,
+      password: Utils.crypt(req.body.password),
       type: req.body.type,
     });
 
@@ -49,6 +50,21 @@ class Users {
     const newType = Number.parseInt(req.body.type);
 
     const userUpdated = await users.update(id, {type: newType});
+
+    if (userUpdated.affected) {
+      return res.json({ message: 'Update success' });
+    }
+
+    return res.status(500).json({ message: 'Error' });
+  }
+
+  public async modifyUserPassword(req: Request, res: Response): Promise<Response> {
+    const users = getCustomRepository(UserRepo);
+
+    const id = req.params.id;
+    const newPass = req.body.password;
+
+    const userUpdated = await users.update(id, {password: Utils.crypt(newPass)});
 
     if (userUpdated.affected) {
       return res.json({ message: 'Update success' });
