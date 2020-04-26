@@ -25,6 +25,23 @@ class Users {
     return res.status(201).json({ user: newUser });
   }
 
+  public async getUserById(req: Request, res: Response): Promise<Response> {
+    const users = getCustomRepository(UserRepo);
+
+    const user = await users.findOne(req.params.id);
+
+    return res.json({
+      user: {
+        name: user?.name,
+        email: user?.email,
+        type: user?.type,
+        createdAt: user?.createdAt,
+        updatedAt: user?.updatedAt,
+        lastlogin: user?.lastLogin,
+      }
+    });
+  }
+
 }
 
 export default Users;

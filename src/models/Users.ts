@@ -19,6 +19,9 @@ class Users {
   type: number;
 
   @Column('time without time zone')
+  lastLogin: Date;
+
+  @Column('time without time zone')
   createdAt: Date;
 
   @Column('time without time zone')
