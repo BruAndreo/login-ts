@@ -42,6 +42,21 @@ class Users {
     });
   }
 
+  public async modifyUserType(req: Request, res: Response): Promise<Response> {
+    const users = getCustomRepository(UserRepo);
+
+    const id = req.params.id;
+    const newType = Number.parseInt(req.body.type);
+
+    const userUpdated = await users.update(id, {type: newType});
+
+    if (userUpdated.affected) {
+      return res.json({ message: 'Update success' });
+    }
+
+    return res.status(500).json({ message: 'Error' });
+  }
+
 }
 
 export default Users;
